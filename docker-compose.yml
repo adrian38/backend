@@ -1,0 +1,18 @@
+version: '3.5'
+
+services:
+    physics_back:
+        build: .
+        restart: 'unless-stopped'
+        env_file:
+            - ./.physics_env
+        ports:
+            - 3000:3000
+
+        networks:
+            - physicsServices
+
+networks:
+    physicsServices:
+        driver: bridge
+        name: physicsServices
